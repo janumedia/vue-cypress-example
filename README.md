@@ -16,11 +16,12 @@ Vue Unit and E3E Test with Cypress Example
    ```
    yarn add -D @vue/test-utils
    ```
-3. Add `@cypress/weback-preprocessor`
+3. Add `@cypress/webpack-preprocessor`
    ```
-   yarn add -D @cypress/weback-preprocessor
+   yarn add -D @cypress/webpack-preprocessor
    ```
 4. Edit Cypress plugins setting locate at `tests/e2e/plugins/index.js`
+
    4.a. Import `webpack-preprocessor`
    ```
    const webpack = require("@cypress/webpack-preprocessor");
