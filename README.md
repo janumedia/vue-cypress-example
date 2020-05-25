@@ -1,6 +1,6 @@
 # vue-cypress-example
 
-Vue Unit and E3E Test with Cypress Example
+Vue Unit and E2E Test with Cypress Example
 
 ## Step by step setup
 
