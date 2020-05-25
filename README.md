@@ -1,4 +1,5 @@
 # vue-cypress-example
+<<<<<<< HEAD
 
 ## Project setup
 ```
@@ -24,3 +25,6 @@ yarn run lint
 ```
 yarn run test:e2e
 ```
+=======
+Vue Unit and E3E Test with Cypress Example
+>>>>>>> 95456f0a19b968a2e6f62b45f93acf9788878299
