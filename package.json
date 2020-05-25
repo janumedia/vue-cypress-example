@@ -1,7 +1,22 @@
 {
   "name": "vue-cypress-example",
+  "description": "Vue Unit and E3E Test with Cypress Example",
   "version": "0.1.0",
+  "author": {
+    "name": "I Nengah Januartha",
+    "email": "janumedia@gmail.com"
+  },
   "private": true,
+  "keywords": [
+    "vue",
+    "vue-cli",
+    "webpack",
+    "vue-test-utils",
+    "es6",
+    "unit-tests",
+    "test-framework",
+    "cypress"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
