@@ -13,11 +13,14 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.7.5",
+    "@cypress/webpack-preprocessor": "^5.4.1",
     "@vue/cli-plugin-babel": "^3.0.1",
     "@vue/cli-plugin-e2e-cypress": "^3.0.1",
     "@vue/cli-plugin-eslint": "^3.0.1",
     "@vue/cli-service": "^3.0.1",
     "@vue/eslint-config-prettier": "^5.0.0",
+    "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.0",
