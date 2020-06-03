@@ -6,7 +6,10 @@
 // https://docs.cypress.io/api/plugins/preprocessors-api.html#Examples
 
 /* eslint-disable import/no-extraneous-dependencies, global-require, arrow-body-style */
-const webpack = require("@cypress/webpack-preprocessor");
+const webpackPreprocessor = require("@cypress/webpack-preprocessor");
+
+const fw = require("find-webpack");
+const webpackOptions = fw.getWebpackOptions();
 
 module.exports = (on, config) => {
   //on('file:preprocessor', webpack({
@@ -16,7 +19,7 @@ module.exports = (on, config) => {
 
   on(
     "file:preprocessor",
-    webpack({
+    webpackPreprocessor({
       webpackOptions: require("@vue/cli-service/webpack.config")
     })
   );
