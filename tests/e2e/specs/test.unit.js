@@ -8,4 +8,9 @@ describe("HelloWorld", () => {
     let wrapper = shallowMount(HelloWorld, { propsData: { msg } });
     expect(wrapper.find("h1").text()).eq(msg);
   });
+  it(`Title should be empty`, () => {
+    HelloWorld.components = HelloWorld.components || {};
+    let wrapper = shallowMount(HelloWorld, {});
+    expect(wrapper.find("h1").text()).to.be.empty;
+  });
 });
