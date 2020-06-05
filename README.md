@@ -16,25 +16,34 @@ Vue Unit and E2E Test with Cypress Example
    ```
    yarn add -D @vue/test-utils
    ```
-3. Add `@cypress/webpack-preprocessor`
+3. Add `@cypress/webpack-preprocessor` and `find-webpack`
    ```
-   yarn add -D @cypress/webpack-preprocessor
+   yarn add -D @cypress/webpack-preprocessor find-webpack
    ```
 4. Edit Cypress plugins setting locate at `tests/e2e/plugins/index.js`
 
    4.a. Import `webpack-preprocessor`
+
    ```
-   const webpack = require("@cypress/webpack-preprocessor");
+   const webpackPreprocessor = require("@cypress/webpack-preprocessor");
    ```
-   4.b. Add on `file:preprocessor` setting
+
+   4.b. Get webpackOptions
+
+   ```
+   const fw = require("find-webpack");
+   const webpackOptions = fw.getWebpackOptions();
+   ```
+
+   4.c. Add on `file:preprocessor` setting
+
    ```
    on(
        "file:preprocessor",
-       webpack({
-       webpackOptions: require("@vue/cli-service/webpack.config")
-       })
+       webpackPreprocessor({ webpackOptions })
    );
    ```
+
    > This setting will allow Cypress to parse .vue files in unit test
 
 ## Writes your test specs
