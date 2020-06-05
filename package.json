@@ -1,6 +1,6 @@
 {
   "name": "vue-cypress-example",
-  "description": "Vue Unit and E2E Test with Cypress Example",
+  "description": "Vue Unit and E2E Test with Code Coverage using Cypress",
   "version": "0.1.0",
   "author": {
     "name": "I Nengah Januartha",

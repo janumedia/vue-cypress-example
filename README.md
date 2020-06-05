@@ -1,6 +1,6 @@
 # vue-cypress-example
 
-Vue Unit and E2E Test with Cypress Example
+Vue Unit and E2E Test with Code Coverage using Cypress
 
 ## Step by step setup
 
@@ -16,9 +16,9 @@ Vue Unit and E2E Test with Cypress Example
    ```
    yarn add -D @vue/test-utils
    ```
-3. Add `@cypress/webpack-preprocessor` and `find-webpack`
+3. Add `@cypress/webpack-preprocessor`, `find-webpack` and `babel-plugin-istanbul`
    ```
-   yarn add -D @cypress/webpack-preprocessor find-webpack
+   yarn add -D @cypress/webpack-preprocessor find-webpack babel-plugin-istanbul
    ```
 4. Edit Cypress plugins setting locate at `tests/e2e/plugins/index.js`
 
@@ -46,23 +46,30 @@ Vue Unit and E2E Test with Cypress Example
 
    > This setting will allow Cypress to parse .vue files in unit test
 
+   4.d. Setup code coverage task
+   ```
+   require("@cypress/code-coverage/task")(on, config);
+   ```
+5. Edit Cypress support setting locate at `tests/e2e/support/index.js`
+    ```
+    import "@cypress/code-coverage/support";
+    ```
+
 ## Writes your test specs
 
 > Vue-CLI by default set test files location in `tests/e2e/specs`, but you can customize them in `cypress.json` or in plugins settings
 
 #### Example E2E test with Cypress
+```
+//tests/e2e/specs/test.js
 
-    ```
-    //tests/e2e/specs/test.js
-
-    describe("My First Test", () => {
-        it("Visits the app root url", () => {
-            cy.visit("/");
-            cy.contains("h1", "Welcome to Your Vue.js App");
-        });
+describe("My First Test", () => {
+    it("Visits the app root url", () => {
+        cy.visit("/");
+        cy.contains("h1", "Welcome to Your Vue.js App");
     });
-    ```
-
+});
+```    
 > More detail about Cypress API see [Cypress API Docs](https://docs.cypress.io/api/introduction/api.html)
 
 #### Example Unit test with `@vue/test-utils` and Cypress
@@ -80,10 +87,18 @@ describe("HelloWorld", () => {
     let wrapper = shallowMount(HelloWorld, { propsData: { msg } });
     expect(wrapper.find("h1").text()).eq(msg);
   });
+  it(`Title should be empty`, () => {
+    HelloWorld.components = HelloWorld.components || {};
+    let wrapper = shallowMount(HelloWorld, {});
+    expect(wrapper.find("h1").text()).to.be.empty;
+  });
 });
 ```
 
 > Make sure to put unit test files the same folder as E2E test files and make it available in Cypress UI
+
+> Writing unit test usually help to get 100% code coverage
+
 > More detail about `@vue/test-utils` see [API Docs](https://vue-test-utils.vuejs.org/api/)
 
 ## Run test
