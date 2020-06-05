@@ -14,6 +14,8 @@ const webpackOptions = fw.getWebpackOptions();
 module.exports = (on, config) => {
   on("file:preprocessor", webpackPreprocessor({ webpackOptions }));
 
+  require("@cypress/code-coverage/task")(on, config);
+
   return Object.assign({}, config, {
     fixturesFolder: "tests/e2e/fixtures",
     integrationFolder: "tests/e2e/specs",
