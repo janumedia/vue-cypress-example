@@ -54,6 +54,17 @@ Vue Unit and E2E Test with Code Coverage using Cypress
     ```
     import "@cypress/code-coverage/support";
     ```
+6. Add `istanbul`as Babel plugins config
+    ```
+    plugins: ["istanbul"]
+    ```
+7. Create `.nycrc` or`nyc` config file with following
+    ```
+    {
+      "extension": [ ".js", ".vue" ]
+    }
+    ```
+> Step 4.d, 5 - 7 are related to Code Coverage setup 
 
 ## Writes your test specs
 
