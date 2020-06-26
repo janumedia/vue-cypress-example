@@ -1,6 +1,8 @@
 # vue-cypress-example
 
-Vue Unit and E2E Test with Code Coverage using Cypress
+Vue Unit and E2E Test with Code Coverage using Cypress setup example
+
+For Vue-Typescript version please [check here](https://github.com/janumedia/vue-typescript-cypress-example)
 
 ## Step by step setup
 
